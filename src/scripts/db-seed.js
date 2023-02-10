@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Operation = require('../models/Operation');
 
@@ -11,9 +12,7 @@ const operations = [
 ];
 
 mongoose
-  .connect(
-    'mongodb+srv://koderspace:cCl8xmZqaNxnLdZW@cluster0.cb6qv.mongodb.net/restcalc-prod?retryWrites=true&w=majority'
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log('MongoDB connected...');
 

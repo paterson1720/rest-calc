@@ -3,6 +3,10 @@
 - Live API URL [https://rest-calc.onrender.com/api/v1](https://rest-calc.onrender.com/api/v1)
 - Live Frontend URL [https://calc-front.vercel.app/](https://calc-front.vercel.app/)
 
+#### Test Username: testuser
+#### Test Password: testpass1
+
+
 ## Project Setup
 
 1- Clone this repository using:
