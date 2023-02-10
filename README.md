@@ -25,10 +25,13 @@ JWT_SECRET=secret
 PORT=5000
 ```
 
-5- Seed the database y running
+5- Seed the database by running
 ``npm run db-seed``
 
-6- Finally run the project by running
+6- Run the automated tests
+``npm run test``
+
+7- Finally run the project by running
 ``npm run dev``
 
 ## API endpoints
