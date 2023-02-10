@@ -31,7 +31,7 @@ async function calculate(req, res) {
     return res.status(200).json({ result, remainingBalance });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -41,7 +41,7 @@ async function getAllOperations(req, res) {
     return res.status(200).json({ operations });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 }
 

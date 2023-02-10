@@ -2,16 +2,18 @@ const mongoose = require('mongoose');
 const Operation = require('../models/Operation');
 
 const operations = [
-  { type: 'addition', cost: 1 },
-  { type: 'subtraction', cost: 1 },
-  { type: 'multiplication', cost: 2 },
-  { type: 'division', cost: 2 },
-  { type: 'square_root', cost: 3 },
-  { type: 'random_string', cost: 3 },
+  { type: 'addition', label: 'Addition', cost: 2 },
+  { type: 'subtraction', label: 'Subtraction', cost: 2 },
+  { type: 'multiplication', label: 'Multiplication', cost: 2 },
+  { type: 'division', label: 'Division', cost: 3 },
+  { type: 'square_root', label: 'Square Root', cost: 4 },
+  { type: 'random_string', label: 'Random String', cost: 5 },
 ];
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017/restcalc')
+  .connect(
+    'mongodb+srv://koderspace:cCl8xmZqaNxnLdZW@cluster0.cb6qv.mongodb.net/restcalc-prod?retryWrites=true&w=majority'
+  )
   .then(() => {
     console.log('MongoDB connected...');
 

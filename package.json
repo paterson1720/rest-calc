@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start":"node src/index.js",
+    "start": "node src/index.js",
     "dev": "node src/index.js",
-    "db-seed": "node scripts/db-seed.js"
+    "db-seed": "node src/scripts/db-seed.js"
   },
   "author": "Paterson Anaccius",
   "license": "ISC",
