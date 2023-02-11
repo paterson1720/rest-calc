@@ -82,6 +82,7 @@ async function random_string({ user, operation, length, loweralpha = true, upper
         len: length || 12,
         loweralpha: loweralpha ? 'on' : 'off',
         upperalpha: upperalpha ? 'on' : 'off',
+        digits: 'on',
         unique: 'on',
         rnd: 'new',
         format: 'plain',
