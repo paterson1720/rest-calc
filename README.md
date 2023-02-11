@@ -25,17 +25,21 @@ JWT_SECRET=secret
 PORT=5000
 ```
 
-5- Seed the database y running
+5- Seed the database by running
 ``npm run db-seed``
 
-6- Finally run the project by running
+6- Run the automated tests
+``npm run test``
+
+7- Finally run the project by running
 ``npm run dev``
 
 ## API endpoints
 
 ### GET /api/v1/operations
+
 Returns a list of all available operations. 
-- Sample response:
+Sample response:
   ```
   [
     {
@@ -54,10 +58,11 @@ Returns a list of all available operations.
     }
 ]
   ```
-
+  
 ### POST /api/v1/register
 Register a new account.
-- Sample request:
+
+Sample request:
 ```
 curl --location --request POST 'localhost:5000/api/v1/register' \
 --header 'Content-Type: application/json' \
@@ -74,7 +79,8 @@ curl --location --request POST 'localhost:5000/api/v1/register' \
 
 ### POST /api/v1/login
 Login to the app.
-- Sample request:
+
+Sample request:
 ```
 curl --location --request POST 'localhost:5000/api/v1/login' \
 --header 'Content-Type: application/json' \
@@ -84,7 +90,7 @@ curl --location --request POST 'localhost:5000/api/v1/login' \
 }'
 ```
 
-- Sample response:
+Sample response:
 ```
 {token: "sdjhfjsfueuofei" }
 ```
@@ -92,7 +98,7 @@ curl --location --request POST 'localhost:5000/api/v1/login' \
 ### POST /api/v1/operations/calculate
 Request an operation calculation.
 
-- Sample request for operationType : ``random_string``
+Sample request for operationType : ``random_string``
 ```
 curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 --header 'Authorization: eyJhbGciOiJII6IkpXVCJ9.eyJ1c2VyIjp7.DcmlfUTwYER4xjgySzM4944' \
@@ -105,12 +111,12 @@ curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 }'
 ```
 
-- Sample response:
+Sample response:
 ```
 {result: "sdjhfjsfueuo", remainingBalance: 865 }
 ```
 
-- Sample request for operationType : ``addition``
+Sample request for operationType : ``addition``
 ```
 curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 --header 'Authorization: eyJhbGciOiJII6IkpXVCJ9.eyJ1c2VyIjp7.DcmlfUTwYER4xjgySzM4944' \
@@ -121,12 +127,12 @@ curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 }'
 ```
 
-- Sample response:
+Sample response:
 ```
 {result: 9, remainingBalance: 865 }
 ```
 
-- Sample request for operationType : ``multiplication``
+Sample request for operationType : ``multiplication``
 ```
 curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 --header 'Authorization: eyJhbGciOiJII6IkpXVCJ9.eyJ1c2VyIjp7.DcmlfUTwYER4xjgySzM4944' \
@@ -137,12 +143,12 @@ curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 }'
 ```
 
-- Sample response:
+Sample response:
 ```
 {result: 20, remainingBalance: 865 }
 ```
 
-- Sample request for operationType : ``square_root``
+Sample request for operationType : ``square_root``
 ```
 curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 --header 'Authorization: eyJhbGciOiJII6IkpXVCJ9.eyJ1c2VyIjp7.DcmlfUTwYER4xjgySzM4944' \
@@ -153,7 +159,7 @@ curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 }'
 ```
 
-- Sample response:
+Sample response:
 ```
 {result: 3, remainingBalance: 865 }
 ```
@@ -162,14 +168,14 @@ curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 ### GET /api/v1/records?page=1&limit=10
 Request a list of the current user records with pagination.
 
-- Sample request
+Sample request
 ```
 curl --location --request GET 'localhost:5000/api/v1/operations/calculate' \
 curl --location --request GET 'localhost:5000/api/v1/records?page=2&limit=5' \
 --header 'Authorization: eyJhbGciOiJIkpXVCJ9.edCI6MTY3NTk2NjAOTY5NjcwfQ.Mq9WvZzTwYER4xjgySzM4944'
 ```
 
-- Sample response:
+Sample response:
 ```
    {
     "records": [
@@ -204,13 +210,13 @@ curl --location --request GET 'localhost:5000/api/v1/records?page=2&limit=5' \
 ### DELETE /api/v1/record/:recordId
 Soft delete a record.
 
-- Sample request
+Sample request
 ```
 curl --location --request DELETE 'localhost:5000/api/v1/record/63e53f910e388a620c448d40' \
 --header 'Authorization: eyJhbGc6IkpXVCJ9.eyJ14MTgxOCwNjc4NTczODE4fQ.UTSgi3r3UlBqAd9G8A'
 ```
 
-- Sample response:
+Sample response:
 ```
 {
     "record": {
