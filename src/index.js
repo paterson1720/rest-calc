@@ -1,13 +1,22 @@
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const rfs = require('rotating-file-stream');
 
 const routes = require('./routes');
 
 const app = express();
 
-app.use(cors())
+const accessLogStream = rfs.createStream('requests.log', {
+  interval: '1d',
+  path: './logs',
+});
+
+process.env.NODE_ENV !== 'production' && app.use(morgan('dev'));
+app.use(morgan('combined', { stream: accessLogStream }));
+app.use(cors());
 app.use(express.json());
 app.use('/api/v1', ...routes);
 

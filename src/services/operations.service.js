@@ -50,6 +50,10 @@ function division({ values, user, operation }) {
   const { error } = validateValues(values);
   if (error) return { error };
 
+  if (values.includes(0) && values.indexOf(0) > 0) {
+    return { error: 'Division by 0 not allowed' };
+  }
+
   const result = values.reduce((x, y) => x / y);
   const remainingBalance = user.balance - operation.cost;
   return { error, result, remainingBalance };
@@ -91,7 +95,7 @@ async function random_string({ user, operation, length, loweralpha = true, upper
     const remainingBalance = user.balance - operation.cost;
     return { result: response.data, remainingBalance };
   } catch (error) {
-    console.error(error.response?.data || error);
+    logger.error(error.response?.data || error);
     return { error: error.response?.data.replace('len', 'length') || error.message };
   }
 }

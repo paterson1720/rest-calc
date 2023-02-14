@@ -1,6 +1,7 @@
 const Record = require('../models/Record');
 const User = require('../models/User');
 const service = require('../services/operations.service');
+const logger = require('../utils/logger');
 
 async function calculate(req, res) {
   try {
@@ -30,7 +31,7 @@ async function calculate(req, res) {
 
     return res.status(200).json({ result, remainingBalance });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -40,7 +41,7 @@ async function getAllOperations(req, res) {
     const { operations } = await service.getAll();
     return res.status(200).json({ operations });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: error.message });
   }
 }

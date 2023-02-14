@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const logger = require('../utils/logger');
 
 const requireAuth = (req, res, next) => {
   const token = req.header('Authorization');
@@ -9,7 +10,7 @@ const requireAuth = (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.error('ERR', error);
+    logger.error(error);
     return res.status(401).json({ error: 'Token not valid.' });
   }
 };

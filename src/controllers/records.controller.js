@@ -1,4 +1,5 @@
 const service = require('../services/records.service');
+const logger = require('../utils/logger');
 
 async function getAllPaginated(req, res) {
   try {
@@ -9,7 +10,7 @@ async function getAllPaginated(req, res) {
     const result = await service.getAllPaginated({ page, limit, userId });
     res.status(200).json(result);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: error.message });
   }
 }
@@ -21,7 +22,7 @@ async function deleteOneRecord(req, res) {
     const { record } = await service.deleteOne({ recordId, userId });
     return res.status(200).json({ record });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: error.message });
   }
 }
